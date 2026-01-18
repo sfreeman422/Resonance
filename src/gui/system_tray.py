@@ -3,7 +3,7 @@ System tray interface for Resonance.
 Provides minimal UI with icon and context menu.
 """
 
-from PySide6.QtWidgets import QSystemTrayIcon, QMenu
+from PySide6.QtWidgets import QSystemTrayIcon, QMenu, QMessageBox
 from PySide6.QtGui import QIcon, QAction
 from PySide6.QtCore import Signal, QObject
 from pathlib import Path
@@ -165,7 +165,7 @@ class SystemTrayIcon(QSystemTrayIcon):
         self.showMessage(title, message, icon_type, duration)
 
     def show_about(self):
-        """Show about message."""
+        """Show about dialog window."""
         about_text = (
             "Resonance - Voice to Text Application\n\n"
             "Resonance is a voice-to-text application that is toggled\n"
@@ -176,7 +176,14 @@ class SystemTrayIcon(QSystemTrayIcon):
             "Created by William Horne\n\n"
             "Version 1.0.0"
         )
-        self.show_message("About Resonance", about_text)
+
+        # Create and show About dialog
+        msg_box = QMessageBox()
+        msg_box.setWindowTitle("About Resonance")
+        msg_box.setText(about_text)
+        msg_box.setIcon(QMessageBox.Icon.Information)
+        msg_box.setStandardButtons(QMessageBox.StandardButton.Ok)
+        msg_box.exec()
 
     def show_transcription_complete(self, text):
         """
