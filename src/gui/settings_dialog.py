@@ -444,7 +444,7 @@ class SettingsDialog(QDialog):
             self.config.set_hotkey(hotkey)
             self.config.set_model_size(model_size)
             self.config.set_audio_device(device_idx)
-            self.config.set("typing", "use_clipboard_fallback", use_clipboard)
+            self.config.set("typing", "use_clipboard_fallback", value=use_clipboard)
             self.config.save()
 
             # Emit signal
