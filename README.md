@@ -22,21 +22,22 @@ A local voice-to-text dictation application for Windows using OpenAI Whisper. Ty
 ### Option 1: Run from Source (Recommended)
 
 1. Clone or download this repository
-2. Install dependencies:
+2. Install [uv](https://docs.astral.sh/uv/)
+3. Install dependencies:
 ```bash
-pip install -r requirements.txt
+uv sync
 ```
 
-3. Run the application:
+4. Run the application:
 ```bash
-python src/main.py
+uv run python src/main.py
 ```
 
 Or simply double-click `START RESONANCE.bat`
 
 ### Option 2: Build Executable
 
-1. Follow steps 1-2 above
+1. Follow steps 1-3 above
 2. Run `BUILD RESONANCE.bat` to create a standalone .exe
 3. The executable will be in `dist\Resonance\Resonance.exe`
 4. Copy the entire `dist\Resonance` folder anywhere - no installation needed!
